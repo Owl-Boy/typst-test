@@ -1,10 +1,13 @@
-name: Render paper.pdf
+name: Build Typst document
 on: push
+
 jobs:
-  render-paper:
+  build_typst_documents:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: typst-community/setup-typst@v4
-      # 🎉 Now Typst is installed!
-      - run: typst compile paper.typ paper.pdf
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Typst
+        uses: lvignoli/typst-action@main
+        with:
+          source_file: main.typ
