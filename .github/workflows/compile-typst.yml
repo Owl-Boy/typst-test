@@ -18,8 +18,14 @@ jobs:
     - name: Install Typst
       uses: typst-community/setup-typst@v3
 
+    - name: Remove Old File
+      run: rm -rf out/main.pdf
+
     - name: Compile main.typ to PDF
       run: typst compile main.typ out/main.pdf
+    
+    - name: See if anything happened
+      run: cat main.typ
 
     - name: Upload compiled PDF
       uses: actions/upload-artifact@v4
