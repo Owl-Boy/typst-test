@@ -25,6 +25,6 @@ jobs:
         run: | 
           git config --global user.name 'Typst Compile Bot'
           git config --global user.email 'shubhssharma@proton.me'
-          git add out/main.pdf
+          git add --force out/main.pdf
           git commit -m "[Bot] Update PDF"
           git push
