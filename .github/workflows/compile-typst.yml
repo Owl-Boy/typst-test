@@ -19,10 +19,10 @@ jobs:
       uses: typst-community/setup-typst@v3
 
     - name: Compile main.typ to PDF
-      run: typst compile main.typ out/main.pdf
+      run: typst compile ~/main.typ ~/out/main.pdf
       uses: actions/upload-artifact@v4
       with:
         name: typst-pdf
-        path: out/main.pdf
+        path: ~/out/main.pdf
         overwrite: true
         compression-level: 0
