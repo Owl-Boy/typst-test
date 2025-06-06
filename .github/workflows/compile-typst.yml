@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 jobs:
-  compile_latex_and_commit:
+  compile_typst_and_commit:
     name: Compile typst to pdf and commit
     runs-on: ubuntu-latest
     steps:
@@ -17,13 +17,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-      - name: Compile LaTeX document
+      - name: setup typst
         uses: typst-community/setup-typst@v4
-      - run: typst compile main.typ out/main.pdf
+      - name: Compile Typst document
+        run: typst compile main.typ out/main.pdf
       - name: Add and commit to main
         run: | 
           git config --global user.name 'Typst Compile Bot'
-          git config --global user.email 'bot@owl-boy.github.io'
+          git config --global user.email 'shubhssharma@proton.me'
           git add main.pdf
           git commit -m "[Bot] Update PDF"
           git push
