@@ -19,7 +19,7 @@ jobs:
           ref: main
       - name: Compile LaTeX document
         uses: typst-community/setup-typst@v4
-        run: typst compile main.typ out/main.pdf
+      - run: typst compile main.typ out/main.pdf
       - name: Add and commit to main
         run: | 
           git config --global user.name 'Typst Compile Bot'
